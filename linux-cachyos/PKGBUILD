@@ -346,6 +346,13 @@ prepare() {
             -d NUMA_BALANCING_DEFAULT_ENABLED
     fi
 
+    ### Disable dwarf and enable debug compress
+    echo "Disabling dwarf and enabling debug compress..."
+    scripts/config -e CONFIG_DEBUG_INFO \
+        -d CONFIG_DEBUG_INFO_COMPRESSED_NONE \
+        -e CONFIG_DEBUG_INFO_COMPRESSED_ZSTD \
+        -d CONFIG_DEBUG_INFO_DWARF5
+
     ### Setting NR_CPUS
     if [[ "$_nr_cpus" -ge 2 && "$_nr_cpus" -le 512 ]]; then
         echo "Setting custom NR_CPUS..."
