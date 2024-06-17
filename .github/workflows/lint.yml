@@ -20,6 +20,7 @@ jobs:
         namcapExcludeRules: "invalidstartdir"
         makepkgArgs: "--skipchecksums --skippgpcheck --noconfirm -s"
   linux-cachyos-zfs-llvm:
+    needs: linux-cachyos-zfs-gcc
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
