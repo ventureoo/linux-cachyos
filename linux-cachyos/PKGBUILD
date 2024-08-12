@@ -434,7 +434,8 @@ prepare() {
             -d ACPI_DEBUG \
             -d LATENCYTOP \
             -d SCHED_DEBUG \
-            -d DEBUG_PREEMPT
+            -d DEBUG_PREEMPT \
+            -d DRM_NOUVEAU
     fi
 
     ### Enable bbr3
