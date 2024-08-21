@@ -435,7 +435,8 @@ prepare() {
             -d LATENCYTOP \
             -d SCHED_DEBUG \
             -d DEBUG_PREEMPT \
-            -d DRM_NOUVEAU
+            -d DRM_NOUVEAU \
+            -d DRM_I915
     fi
 
     ### Enable bbr3
