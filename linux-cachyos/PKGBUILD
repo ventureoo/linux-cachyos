@@ -436,6 +436,7 @@ prepare() {
             -d SCHED_DEBUG \
             -d DEBUG_PREEMPT \
             -d DRM_NOUVEAU \
+            -d DRM_AMDGPU \
             -d DRM_I915
     fi
 
