@@ -1,4 +1,4 @@
-name: Build and lint
+name: Lint
 on:
   push:
     paths:
@@ -6,29 +6,16 @@ on:
       - '.github/workflows/lint.yml'
   workflow_dispatch:
 jobs:
-  linux-cachyos-zfs-gcc:
+  linux-cachyos:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Build (GCC)
+    - name: Check
       id: makepkg
       uses: CachyOS/pkgbuild-action@master
       with:
-        envvars: "_build_zfs=y _use_auto_optimization= _processor_opt=generic _cc_size=y _cc_harder="
+        envvars: "_use_auto_optimization= _processor_opt=generic _cc_harder="
         pkgdir: "linux-cachyos"
         namcapExcludeRules: "invalidstartdir"
-        makepkgArgs: "--skipchecksums --skippgpcheck --noconfirm -s"
-  linux-cachyos-zfs-llvm:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Build (LLVM)
-      id: makepkg
-      uses: CachyOS/pkgbuild-action@master
-      with:
-        envvars: "_build_zfs=y _use_llvm_lto=thin _use_auto_optimization= _processor_opt=generic _cc_size=y _cc_harder="
-        pkgdir: "linux-cachyos"
-        namcapExcludeRules: "invalidstartdir"
-        makepkgArgs: "--skipchecksums --skippgpcheck --noconfirm -s"
+        makepkgArgs: "--skippgpcheck --noconfirm -s --nobuild"
