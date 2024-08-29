@@ -439,7 +439,8 @@ prepare() {
             -d DRM_AMDGPU \
             -d DRM_I915 \
             -d ETHERNET \
-            -d WLAN
+            -d WLAN \
+            -d NET
     fi
 
     ### Enable bbr3
