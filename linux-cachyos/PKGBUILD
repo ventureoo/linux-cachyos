@@ -422,7 +422,7 @@ prepare() {
     fi
 
     ### CI-only stuff
-    if [ -n "$GITHUB_RUN_ID" ]; then
+    if [[ -n "$CI" || -n "$GITHUB_RUN_ID" ]]; then
         echo "Detected build inside CI"
         scripts/config -d CC_OPTIMIZE_FOR_PERFORMANCE \
             -d CC_OPTIMIZE_FOR_PERFORMANCE_O3 \
