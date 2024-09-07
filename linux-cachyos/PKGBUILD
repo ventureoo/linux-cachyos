@@ -437,10 +437,7 @@ prepare() {
             -d DEBUG_PREEMPT \
             -d DRM_NOUVEAU \
             -d DRM_AMDGPU \
-            -d DRM_I915 \
-            -d ETHERNET \
-            -d WLAN \
-            -d NET
+            -d DRM_I915
     fi
 
     ### Enable bbr3
