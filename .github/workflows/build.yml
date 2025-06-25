@@ -18,6 +18,8 @@ jobs:
       env:
         _build_zfs: yes
         _use_llvm_lto: none
+        _processor_opt: generic
+        _cc_harder: no
       with:
         pkgdir: "linux-cachyos"
         namcapExcludeRules: "invalidstartdir"
@@ -32,6 +34,9 @@ jobs:
       uses: CachyOS/pkgbuild-action@master
       env:
         _build_zfs: yes
+        _processor_opt: generic
+        _use_llvm_lto: thin
+        _cc_harder: no
       with:
         pkgdir: "linux-cachyos"
         namcapExcludeRules: "invalidstartdir"
